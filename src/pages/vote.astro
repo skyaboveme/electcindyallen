@@ -1,0 +1,75 @@
+---
+import Layout from "../layouts/Layout.astro";
+import EventFilter from "../components/EventFilter";
+import PrecinctFinder from "../components/PrecinctFinder";
+import { site } from "../data/site";
+import { toCentralNoonIso } from "../lib/dates";
+import { getCollection } from "astro:content";
+
+const events = (await getCollection("events"))
+  .sort((a, b) => a.data.date.getTime() - b.data.date.getTime())
+  .map((event) => ({
+    id: event.id,
+    title: event.data.title,
+    date: toCentralNoonIso(event.data.date),
+    endDate: event.data.endDate ? toCentralNoonIso(event.data.endDate) : undefined,
+    location: event.data.location,
+    category: event.data.category,
+    body: event.body,
+  }));
+---
+
+<Layout
+  title="Vote"
+  description="How to vote for Cindy Allen for Justice of the Peace, Precinct 1: registration deadline, early voting, Election Day, and precinct lookup for Bastrop County."
+>
+  <section class="hero-wash relative py-16 text-cream">
+    <div class="star-field absolute inset-0"></div>
+    <div class="relative mx-auto max-w-4xl px-4 md:px-6">
+      <p class="font-mark text-[11px] text-gold">Texas · Bastrop County</p>
+      <h1 class="font-display mt-3 text-5xl">Vote like this court belongs to you — because it does.</h1>
+      <p class="mt-5 max-w-2xl text-lg text-cream/80">
+        General Election Day is {site.electionDayLabel}. Bring an accepted photo ID. Look for Justice of the Peace, Precinct 1.
+      </p>
+    </div>
+  </section>
+
+  <section class="mx-auto grid max-w-6xl gap-10 px-4 py-16 md:grid-cols-2 md:px-6">
+    <div class="space-y-4">
+      <article class="rounded-sm border-l-4 border-red bg-white p-5">
+        <p class="font-mark text-[10px] text-red">Deadline</p>
+        <h2 class="font-display text-2xl">Register by {site.registrationDeadline}</h2>
+        <p class="mt-2 text-muted">Must be received or postmarked by this date to vote on November 3.</p>
+      </article>
+      <article class="rounded-sm border-l-4 border-gold bg-white p-5">
+        <p class="font-mark text-[10px] text-gold">Early vote</p>
+        <h2 class="font-display text-2xl">{site.earlyVotingStart} – {site.earlyVotingEnd}</h2>
+        <p class="mt-2 text-muted">Personal appearance at Bastrop County early voting locations.</p>
+      </article>
+      <article class="rounded-sm border-l-4 border-navy bg-white p-5">
+        <p class="font-mark text-[10px] text-navy">Election Day</p>
+        <h2 class="font-display text-2xl">{site.electionDayLabel}</h2>
+        <p class="mt-2 text-muted">Polls 7 a.m. to 7 p.m. at your assigned polling place.</p>
+      </article>
+      <article class="rounded-sm border-l-4 border-pine bg-white p-5">
+        <p class="font-mark text-[10px] text-pine">Ballot by mail</p>
+        <h2 class="font-display text-2xl">Apply by {site.mailBallotDeadline}</h2>
+        <p class="mt-2 text-muted">Received, not postmarked. Confirm eligibility with the early voting clerk.</p>
+      </article>
+      <div class="flex flex-wrap gap-3 pt-2">
+        <a href={site.voteTexasUrl} class="rounded-sm bg-red px-4 py-2 font-semibold text-cream">VoteTexas.gov</a>
+        <a href={site.bastropVotesUrl} class="rounded-sm border border-navy/20 px-4 py-2 font-semibold">Bastrop Votes</a>
+        <a href={site.voterLookupUrl} class="rounded-sm border border-navy/20 px-4 py-2 font-semibold">Voter status</a>
+      </div>
+    </div>
+    <PrecinctFinder client:visible />
+  </section>
+
+  <section class="bg-parchment py-16">
+    <div class="mx-auto max-w-4xl px-4 md:px-6">
+      <p class="font-mark text-[11px] text-red">Live calendar</p>
+      <h2 class="font-display mt-2 mb-8 text-4xl">Dates you can filter</h2>
+      <EventFilter client:load events={events} />
+    </div>
+  </section>
+</Layout>

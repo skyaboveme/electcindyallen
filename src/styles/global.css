@@ -1,0 +1,148 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Fraunces", "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+  --font-mark: "Cinzel", "Times New Roman", serif;
+  --font-sans: "Source Sans 3", "Segoe UI", system-ui, sans-serif;
+
+  --color-navy: #071422;
+  --color-navy-mid: #0e243c;
+  --color-navy-light: #173456;
+  --color-red: #b22234;
+  --color-red-deep: #8a1a28;
+  --color-gold: #c9a227;
+  --color-gold-soft: #e4d2a0;
+  --color-pine: #1c3f33;
+  --color-parchment: #f4ecd9;
+  --color-cream: #faf6ee;
+  --color-ink: #161310;
+  --color-muted: #5c564c;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--color-ink);
+  background: var(--color-cream);
+}
+
+::selection {
+  background: var(--color-gold);
+  color: var(--color-navy);
+}
+
+.font-display {
+  font-family: var(--font-display);
+  font-optical-sizing: auto;
+}
+
+.font-mark {
+  font-family: var(--font-mark);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.gold-rule {
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--color-gold) 12%,
+    var(--color-gold-soft) 50%,
+    var(--color-gold) 88%,
+    transparent
+  );
+}
+
+.flag-stripe {
+  background: linear-gradient(
+    90deg,
+    var(--color-navy) 0 34%,
+    #f4f1ea 34% 66%,
+    var(--color-red) 66% 100%
+  );
+}
+
+.hero-wash {
+  background:
+    radial-gradient(ellipse 80% 60% at 80% 20%, rgb(201 162 39 / 0.16), transparent 55%),
+    radial-gradient(ellipse 50% 50% at 10% 80%, rgb(178 34 52 / 0.18), transparent 50%),
+    linear-gradient(165deg, #071422 0%, #0e243c 48%, #122a1f 100%);
+}
+
+.star-field {
+  background-image:
+    radial-gradient(1.2px 1.2px at 12% 18%, rgb(255 255 255 / 0.55), transparent),
+    radial-gradient(1px 1px at 28% 42%, rgb(228 210 160 / 0.7), transparent),
+    radial-gradient(1.4px 1.4px at 63% 22%, rgb(255 255 255 / 0.45), transparent),
+    radial-gradient(1px 1px at 81% 58%, rgb(228 210 160 / 0.55), transparent),
+    radial-gradient(1.2px 1.2px at 44% 72%, rgb(255 255 255 / 0.35), transparent),
+    radial-gradient(1px 1px at 91% 12%, rgb(255 255 255 / 0.5), transparent),
+    radial-gradient(1px 1px at 8% 78%, rgb(228 210 160 / 0.4), transparent);
+}
+
+.parchment {
+  background-color: var(--color-parchment);
+  background-image:
+    linear-gradient(180deg, rgb(22 19 16 / 0.03), transparent 40%),
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 27px,
+      rgb(201 162 39 / 0.07) 28px
+    );
+}
+
+.seal-ring {
+  background:
+    radial-gradient(circle at 50% 50%, rgb(7 20 34 / 0.2), rgb(7 20 34 / 0.65) 62%),
+    conic-gradient(
+      from 0deg,
+      var(--color-gold),
+      var(--color-gold-soft),
+      var(--color-gold),
+      #8a6d16,
+      var(--color-gold)
+    );
+}
+
+.ballot-card {
+  box-shadow:
+    0 1px 0 rgb(201 162 39 / 0.4),
+    0 24px 50px rgb(7 20 34 / 0.18);
+}
+
+.prose-campaign {
+  color: var(--color-ink);
+  font-size: 1.125rem;
+  line-height: 1.75;
+}
+
+.prose-campaign a {
+  color: var(--color-red-deep);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.prose-campaign p + p {
+  margin-top: 1.1rem;
+}
+
+.prose-campaign h2,
+.prose-campaign h3 {
+  font-family: var(--font-display);
+  margin: 1.6rem 0 0.7rem;
+}
+
+input,
+select,
+textarea {
+  font-family: inherit;
+}
+
+button {
+  cursor: pointer;
+}

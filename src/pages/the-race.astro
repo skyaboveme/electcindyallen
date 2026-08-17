@@ -1,0 +1,106 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Portrait from "../components/Portrait.astro";
+import { site } from "../data/site";
+---
+
+<Layout
+  title="The Race"
+  description={`Cindy Allen (R) vs ${site.opponent.name} (D) for Bastrop County Justice of the Peace, Precinct 1, on November 3, 2026.`}
+>
+  <section class="hero-wash relative py-16 text-cream">
+    <div class="star-field absolute inset-0"></div>
+    <div class="relative mx-auto max-w-4xl px-4 md:px-6">
+      <p class="font-mark text-[11px] text-gold">November 3, 2026 · Partisan election</p>
+      <h1 class="font-display mt-3 text-5xl md:text-6xl">Precinct 1 chooses its justice of the peace.</h1>
+      <p class="mt-5 max-w-2xl text-lg text-cream/80">
+        Texas elects justices of the peace. This is not a low-stakes local footnote. It is the court most people in Precinct 1 will actually walk into.
+      </p>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-4xl px-4 py-16 md:px-6">
+    <div class="ballot-card parchment rounded-sm border border-gold/50 p-6 md:p-10">
+      <p class="font-mark text-[11px] text-red">Sample ballot language</p>
+      <h2 class="font-display mt-2 text-3xl">Justice of the Peace, Precinct 1</h2>
+      <p class="mt-1 text-sm text-muted">Bastrop County, Texas · General Election</p>
+      <div class="mt-8 space-y-3">
+        <div class="flex items-center gap-4 rounded-sm border-2 border-gold bg-gold/15 px-4 py-4">
+          <span class="grid h-6 w-6 place-items-center rounded-sm border-2 border-navy text-xs font-bold">●</span>
+          <Portrait variant="ballot" />
+          <div>
+            <p class="font-display text-2xl">Cindy Allen</p>
+            <p class="text-sm text-muted">Republican · Incumbent Justice of the Peace</p>
+          </div>
+        </div>
+        <div class="flex items-center gap-4 rounded-sm border border-navy/20 bg-white px-4 py-4">
+          <span class="grid h-6 w-6 place-items-center rounded-sm border-2 border-navy/40"></span>
+          <div>
+            <p class="font-display text-2xl">{site.opponent.name}</p>
+            <p class="text-sm text-muted">Democrat · Nominee</p>
+          </div>
+        </div>
+      </div>
+      <p class="mt-6 text-sm text-muted">
+        Illustrative only. Official ballot order and styling are set by Bastrop County Elections.
+      </p>
+    </div>
+  </section>
+
+  <section class="bg-navy py-16 text-cream">
+    <div class="mx-auto max-w-5xl px-4 md:px-6">
+      <p class="font-mark text-[11px] text-gold">The contrast</p>
+      <h2 class="font-display mt-2 text-4xl">A sitting judge versus a first campaign for this bench.</h2>
+      <div class="mt-8 overflow-x-auto rounded-sm border border-gold/30">
+        <table class="w-full text-left text-sm md:text-base">
+          <thead class="bg-navy-mid font-mark text-[10px] text-gold">
+            <tr>
+              <th class="px-4 py-3">On the work</th>
+              <th class="px-4 py-3">Cindy Allen (R)</th>
+              <th class="px-4 py-3">{site.opponent.name} (D)</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-gold/20">
+            <tr>
+              <td class="px-4 py-4 text-gold-soft">Office today</td>
+              <td class="px-4 py-4">Incumbent Justice of the Peace, Precinct 1, since January 2019</td>
+              <td class="px-4 py-4">Democratic nominee; not the sitting JP</td>
+            </tr>
+            <tr>
+              <td class="px-4 py-4 text-gold-soft">Judicial experience</td>
+              <td class="px-4 py-4">Former municipal judge; seven-plus years on this county bench</td>
+              <td class="px-4 py-4">Seeking her first term as justice of the peace</td>
+            </tr>
+            <tr>
+              <td class="px-4 py-4 text-gold-soft">Public record in this race</td>
+              <td class="px-4 py-4">Won in 2018 and 2022; Republican nominee after the March 2026 primary</td>
+              <td class="px-4 py-4">Democratic nominee after the March 2026 primary</td>
+            </tr>
+            <tr>
+              <td class="px-4 py-4 text-gold-soft">The ask</td>
+              <td class="px-4 py-4">Keep a trained, known judge on Precinct 1’s people’s court</td>
+              <td class="px-4 py-4">Replace the incumbent with a Democratic first-term candidate</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="mt-6 max-w-3xl text-sm text-cream/70">
+        {site.opponent.name} is a Bastrop resident and, according to her public professional profile, a Bastrop County law enforcement officer. Law enforcement and judging are related — and they are not the same job. This campaign’s case is straightforward: Precinct 1 should keep the person who has already been the judge.
+      </p>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-3xl px-4 py-16 md:px-6">
+    <h2 class="font-display text-4xl">Why this office matters</h2>
+    <p class="mt-4 text-lg leading-relaxed">
+      A Texas justice of the peace is often the first — and only — judge a family meets. Traffic. Small claims. Eviction. A warrant. An inquest. A wedding. Article V of the Texas Constitution and the Local Government Code put that work in a precinct court on purpose: close to home, elected, and accountable.
+    </p>
+    <p class="mt-4 text-lg leading-relaxed text-muted">
+      Judge Allen is asking for another four-year term because she has already done that work in Precinct 1. The November ballot is the voters’ chance to say whether that experience still belongs on the bench.
+    </p>
+    <div class="mt-8 flex flex-wrap gap-3">
+      <a href="/priorities" class="rounded-sm bg-navy px-5 py-3 font-semibold text-cream">Priorities</a>
+      <a href="/vote" class="rounded-sm border border-navy/20 px-5 py-3 font-semibold">How to vote</a>
+    </div>
+  </section>
+</Layout>

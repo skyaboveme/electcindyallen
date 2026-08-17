@@ -1,0 +1,62 @@
+---
+import { nav, site } from "../data/site";
+import Portrait from "./Portrait.astro";
+import MobileNav from "./MobileNav";
+
+const path = Astro.url.pathname.replace(/\/$/, "") || "/";
+---
+
+<header
+  class="sticky top-0 z-40 border-b border-gold/25 bg-navy/92 text-cream backdrop-blur-md"
+>
+  <div class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3 md:px-6">
+    <a href="/" class="flex items-center gap-3 no-underline">
+      <Portrait variant="logo" />
+      <span class="leading-tight">
+        <span class="font-mark block text-[10px] text-gold-soft">Bastrop County · Texas</span>
+        <span class="font-display block text-lg text-cream md:text-xl">{site.candidate}</span>
+        <span class="block text-xs tracking-wide text-gold-soft/90">{site.shortOffice}</span>
+      </span>
+    </a>
+
+    <nav class="hidden items-center gap-1 lg:flex" aria-label="Primary">
+      {
+        nav.map((item) => {
+          const hrefPath = item.href.replace(/\/$/, "") || "/";
+          const active = path === hrefPath;
+          return (
+            <a
+              href={item.href}
+              class:list={[
+                "rounded-sm px-2.5 py-2 text-sm tracking-wide transition",
+                active
+                  ? "bg-gold/15 text-gold-soft"
+                  : "text-cream/80 hover:bg-white/5 hover:text-gold-soft",
+              ]}
+              aria-current={active ? "page" : undefined}
+            >
+              {item.label}
+            </a>
+          );
+        })
+      }
+    </nav>
+
+    <div class="hidden items-center gap-2 lg:flex">
+      <a
+        href="/get-involved"
+        class="rounded-sm bg-red px-3 py-2 text-sm font-semibold text-cream shadow-sm hover:bg-red-deep"
+      >
+        Volunteer
+      </a>
+      <a
+        href="/get-involved#donate"
+        class="rounded-sm border border-gold px-3 py-2 text-sm font-semibold text-gold-soft hover:bg-gold/10"
+      >
+        Donate
+      </a>
+    </div>
+
+    <MobileNav client:load pathname={path} items={[...nav]} />
+  </div>
+</header>

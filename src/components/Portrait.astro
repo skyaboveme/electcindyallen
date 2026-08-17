@@ -1,0 +1,63 @@
+---
+import { Image } from "astro:assets";
+import portrait from "../assets/cindy-allen.jpg";
+import logo from "../assets/cindy-allen-logo.png";
+
+interface Props {
+  variant?: "hero" | "about" | "thumb" | "ballot" | "logo";
+  class?: string;
+}
+
+const { variant = "about", class: className = "" } = Astro.props;
+const alt = "Judge Cindy Allen, candidate for Justice of the Peace, Precinct 1, Bastrop County";
+---
+
+{
+  variant === "hero" ? (
+    <figure class:list={["relative mx-auto w-full max-w-md", className]}>
+      <div class="seal-ring rounded-full p-2 shadow-[0_24px_60px_rgb(0_0_0/0.35)]">
+        <Image
+          src={logo}
+          alt={alt}
+          widths={[320, 480, 720, 1024]}
+          sizes="(min-width: 768px) 22rem, 80vw"
+          class="aspect-square w-full rounded-full bg-navy object-cover"
+        />
+      </div>
+      <figcaption class="mt-4 text-center">
+        <p class="font-mark text-[10px] text-gold">Judge · Precinct One</p>
+        <p class="font-display text-xl text-cream">Cindy Allen</p>
+      </figcaption>
+    </figure>
+  ) : variant === "thumb" || variant === "logo" ? (
+    <Image
+      src={logo}
+      alt={alt}
+      width={88}
+      height={88}
+      class:list={["h-12 w-12 rounded-full bg-navy object-cover ring-2 ring-gold/80", className]}
+    />
+  ) : variant === "ballot" ? (
+    <Image
+      src={logo}
+      alt={alt}
+      width={96}
+      height={96}
+      class:list={["h-14 w-14 rounded-full bg-navy object-cover ring-2 ring-gold", className]}
+    />
+  ) : (
+    <figure class:list={["overflow-hidden rounded-sm border border-gold/50 bg-navy shadow-xl", className]}>
+      <Image
+        src={portrait}
+        alt={alt}
+        widths={[400, 720, 960]}
+        sizes="(min-width: 768px) 28rem, 90vw"
+        class="aspect-[4/5] w-full object-cover object-[center_12%]"
+      />
+      <figcaption class="bg-navy px-4 py-3 text-cream">
+        <p class="font-mark text-[10px] text-gold">Bastrop County, Texas</p>
+        <p class="font-display text-lg">Judge Cindy Allen</p>
+      </figcaption>
+    </figure>
+  )
+}
