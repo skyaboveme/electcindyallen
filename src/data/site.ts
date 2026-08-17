@@ -10,7 +10,7 @@ export const site = {
   slogan: "Experience on the bench. Fairness in the courtroom.",
   tagline: "Re-elect Judge Cindy Allen — Justice of the Peace, Precinct 1",
   siteName: "Cindy Allen for Justice of the Peace",
-  url: "https://cindyallenforjp.com",
+  url: "https://cindyallenjp-com.skyabove.workers.dev",
   campaignEmail: "",
   campaignPhone: "",
   donateUrl: "",
