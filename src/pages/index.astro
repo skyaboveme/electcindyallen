@@ -4,7 +4,8 @@ import Countdown from "../components/Countdown";
 import Portrait from "../components/Portrait.astro";
 import TexasOutline from "../components/TexasOutline.astro";
 import FaqList from "../components/FaqList";
-import { experience, faqs, priorities, site } from "../data/site";
+import Photo from "../components/Photo.astro";
+import { experience, faqs, photos, priorities, site } from "../data/site";
 import { formatCalendarDate } from "../lib/dates";
 import { getCollection } from "astro:content";
 
@@ -49,6 +50,23 @@ const events = (await getCollection("events"))
       <div class="flex justify-center md:justify-end">
         <Portrait variant="hero" class="w-72 md:w-[22rem]" />
       </div>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-6xl px-4 py-10 md:px-6">
+    <div class="grid gap-4 md:grid-cols-3">
+      <figure class="overflow-hidden rounded-sm border border-gold/40">
+        <Photo src={photos.truck} class="h-64 w-full object-cover object-[center_32%]" />
+        <figcaption class="bg-navy px-3 py-2 text-sm text-cream">Re-elect · Precinct One</figcaption>
+      </figure>
+      <figure class="overflow-hidden rounded-sm border border-gold/40">
+        <Photo src={photos.parade} class="h-64 w-full object-cover object-[center_30%]" />
+        <figcaption class="bg-navy px-3 py-2 text-sm text-cream">Out in the community</figcaption>
+      </figure>
+      <figure class="overflow-hidden rounded-sm border border-gold/40">
+        <Photo src={photos.downtown} class="h-64 w-full object-cover object-center" />
+        <figcaption class="bg-navy px-3 py-2 text-sm text-cream">Downtown Bastrop</figcaption>
+      </figure>
     </div>
   </section>
 

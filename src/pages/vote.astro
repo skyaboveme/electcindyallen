@@ -2,7 +2,8 @@
 import Layout from "../layouts/Layout.astro";
 import EventFilter from "../components/EventFilter";
 import PrecinctFinder from "../components/PrecinctFinder";
-import { site } from "../data/site";
+import Photo from "../components/Photo.astro";
+import { photos, site } from "../data/site";
 import { toCentralNoonIso } from "../lib/dates";
 import { getCollection } from "astro:content";
 
@@ -62,7 +63,13 @@ const events = (await getCollection("events"))
         <a href={site.voterLookupUrl} class="rounded-sm border border-navy/20 px-4 py-2 font-semibold">Voter status</a>
       </div>
     </div>
-    <PrecinctFinder client:visible />
+    <div class="space-y-6">
+      <figure class="overflow-hidden rounded-sm border border-gold/40">
+        <Photo src={photos.truckAlt} class="w-full object-contain" />
+        <figcaption class="bg-navy px-4 py-3 text-sm text-cream">Re-elect Judge Cindy Allen · November 3</figcaption>
+      </figure>
+      <PrecinctFinder client:visible />
+    </div>
   </section>
 
   <section class="bg-parchment py-16">

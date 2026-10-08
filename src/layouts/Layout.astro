@@ -30,17 +30,17 @@ const pageTitle = title.includes(site.candidate) ? title : `${title} · ${site.c
     <title>{pageTitle}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
-    <link rel="icon" type="image/png" href="/favicon.png" />
-    <link rel="apple-touch-icon" href="/cindy-allen-logo.png" />
+    <link rel="icon" type="image/png" href="/Images/cindy7.png" />
+    <link rel="apple-touch-icon" href="/Images/cindy7.png" />
     <meta name="theme-color" content="#071422" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content={pageTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
-    <meta property="og:image" content={new URL("/og.jpg", site.url).toString()} />
+    <meta property="og:image" content={new URL("/Images/cindy1.jpg", site.url).toString()} />
     <meta property="og:locale" content="en_US" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:image" content={new URL("/og.jpg", site.url).toString()} />
+    <meta name="twitter:image" content={new URL("/Images/cindy1.jpg", site.url).toString()} />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -58,7 +58,7 @@ const pageTitle = title.includes(site.candidate) ? title : `${title} · ${site.c
       },
       description,
       url: site.url,
-      image: new URL("/cindy-allen-logo.png", site.url).toString(),
+      image: new URL("/Images/cindy7.png", site.url).toString(),
       address: {
         "@type": "PostalAddress",
         addressLocality: "Bastrop",

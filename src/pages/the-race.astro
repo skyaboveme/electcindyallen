@@ -1,7 +1,8 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import Photo from "../components/Photo.astro";
 import Portrait from "../components/Portrait.astro";
-import { site } from "../data/site";
+import { photos, site } from "../data/site";
 ---
 
 <Layout
@@ -45,6 +46,10 @@ import { site } from "../data/site";
         Illustrative only. Official ballot order and styling are set by Bastrop County Elections.
       </p>
     </div>
+    <figure class="mt-10 overflow-hidden rounded-sm border border-gold/40">
+      <Photo src={photos.truck} class="w-full object-contain" />
+      <figcaption class="bg-navy px-4 py-3 text-cream">Honest. Fair. Professional.</figcaption>
+    </figure>
   </section>
 
   <section class="bg-navy py-16 text-cream">

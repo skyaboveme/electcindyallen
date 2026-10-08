@@ -1,7 +1,8 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import Photo from "../components/Photo.astro";
 import Portrait from "../components/Portrait.astro";
-import { experience, record, site } from "../data/site";
+import { experience, photos, record, site } from "../data/site";
 ---
 
 <Layout title="About Judge Cindy Allen" description="Cindy Allen is the Republican Justice of the Peace for Bastrop County Precinct 1, first elected in 2018 and seeking another term in 2026.">
@@ -19,17 +20,26 @@ import { experience, record, site } from "../data/site";
     </div>
   </section>
 
-  <section class="mx-auto max-w-3xl px-4 py-16 md:px-6">
-    <div class="gold-rule mb-10"></div>
-    <p class="text-lg leading-relaxed">
-      When Cindy Allen first ran for this seat in 2018, she was a former municipal judge from Martindale in Caldwell County. She brought thirteen years in the Texas justice system with her: nine in juvenile justice, three in juvenile corrections, and one in adult probation.
-    </p>
-    <p class="mt-5 text-lg leading-relaxed text-muted">
-      Precinct 1 was an open seat that year, with Judge Donna Thomson leaving the bench. Allen won a four-person Republican primary runoff against former TABC executive director Sherry Cook, then defeated Democrat Dock Jackson in November with 56 percent of the vote. In 2022 she won a second term with 58 percent against Democrat Dayna Beck.
-    </p>
-    <p class="mt-5 text-lg leading-relaxed">
-      That is not a résumé assembled for a flyer. It is the path of someone who has already sat as a judge, already learned a county docket, and already been hired twice by the people who use this court.
-    </p>
+  <section class="mx-auto grid max-w-6xl items-start gap-10 px-4 py-16 md:grid-cols-2 md:px-6">
+    <div>
+      <div class="gold-rule mb-10"></div>
+      <p class="text-lg leading-relaxed">
+        When Cindy Allen first ran for this seat in 2018, she was a former municipal judge from Martindale in Caldwell County. She brought thirteen years in the Texas justice system with her: nine in juvenile justice, three in juvenile corrections, and one in adult probation.
+      </p>
+      <p class="mt-5 text-lg leading-relaxed text-muted">
+        Precinct 1 was an open seat that year, with Judge Donna Thomson leaving the bench. Allen won a four-person Republican primary runoff against former TABC executive director Sherry Cook, then defeated Democrat Dock Jackson in November with 56 percent of the vote. In 2022 she won a second term with 58 percent against Democrat Dayna Beck.
+      </p>
+      <p class="mt-5 text-lg leading-relaxed">
+        That is not a résumé assembled for a flyer. It is the path of someone who has already sat as a judge, already learned a county docket, and already been hired twice by the people who use this court.
+      </p>
+    </div>
+    <figure class="overflow-hidden rounded-sm border border-gold/40">
+      <Photo src={photos.studio} class="w-full object-cover object-[center_15%]" />
+      <figcaption class="bg-navy px-4 py-3 text-cream">
+        <p class="font-mark text-[10px] text-gold">Studio portrait</p>
+        <p class="font-display text-lg">Judge Cindy Allen</p>
+      </figcaption>
+    </figure>
   </section>
 
   <section class="bg-navy py-16 text-cream">

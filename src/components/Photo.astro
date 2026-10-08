@@ -1,0 +1,15 @@
+---
+import { photoAlt } from "../data/site";
+
+interface Props {
+  src: string;
+  alt?: string;
+  class?: string;
+  width?: number;
+  height?: number;
+}
+
+const { src, alt = photoAlt, class: className = "", width, height } = Astro.props;
+---
+
+<img src={src} alt={alt} width={width} height={height} class={className} loading="lazy" />

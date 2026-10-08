@@ -1,6 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import { jpDuties, priorities } from "../data/site";
+import Photo from "../components/Photo.astro";
+import { jpDuties, photos, priorities } from "../data/site";
 ---
 
 <Layout
@@ -9,12 +10,17 @@ import { jpDuties, priorities } from "../data/site";
 >
   <section class="hero-wash relative py-16 text-cream">
     <div class="star-field absolute inset-0"></div>
-    <div class="relative mx-auto max-w-4xl px-4 md:px-6">
-      <p class="font-mark text-[11px] text-gold">Cause list</p>
-      <h1 class="font-display mt-3 text-5xl">A docket worthy of Precinct 1.</h1>
-      <p class="mt-5 max-w-2xl text-lg text-cream/80">
-        Justice court is not theory. It is the Tuesday morning setting, the eviction file, the warrant, and the person at the clerk’s window who just wants a straight answer.
-      </p>
+    <div class="relative mx-auto grid max-w-6xl items-center gap-10 px-4 md:grid-cols-2 md:px-6">
+      <div>
+        <p class="font-mark text-[11px] text-gold">Cause list</p>
+        <h1 class="font-display mt-3 text-5xl">A docket worthy of Precinct 1.</h1>
+        <p class="mt-5 max-w-2xl text-lg text-cream/80">
+          Justice court is not theory. It is the Tuesday morning setting, the eviction file, the warrant, and the person at the clerk’s window who just wants a straight answer.
+        </p>
+      </div>
+      <figure class="overflow-hidden rounded-sm border border-gold/40">
+        <Photo src={photos.office} class="max-h-[28rem] w-full object-cover object-[center_20%]" />
+      </figure>
     </div>
   </section>
 

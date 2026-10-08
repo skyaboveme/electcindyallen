@@ -34,6 +34,18 @@ export const site = {
     "Political advertising paid for by Cindy Allen Campaign. This website is a campaign communication and is not the official website of the Bastrop County Justice of the Peace, Precinct 1.",
 } as const;
 
+export const photos = {
+  robes: "/Images/cindy7.png",
+  studio: "/Images/cindy1.jpg",
+  office: "/Images/cindy6.jpg",
+  truck: "/Images/cindy2.jpg",
+  truckAlt: "/Images/cindy3.jpg",
+  downtown: "/Images/cindy4.jpg",
+  parade: "/Images/cindy5.jpg",
+} as const;
+
+export const photoAlt = "Judge Cindy Allen, Justice of the Peace, Precinct 1, Bastrop County";
+
 export const nav = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About" },

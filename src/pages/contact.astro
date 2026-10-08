@@ -1,7 +1,8 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import VolunteerForm from "../components/VolunteerForm";
-import { site } from "../data/site";
+import Photo from "../components/Photo.astro";
+import { photos, site } from "../data/site";
 ---
 
 <Layout
@@ -46,6 +47,9 @@ import { site } from "../data/site";
           {site.campaignEmail}
         </a>
       </div>
+      <figure class="overflow-hidden rounded-sm border border-gold/40">
+        <Photo src={photos.studio} class="h-72 w-full object-cover object-[center_15%]" />
+      </figure>
     </div>
   </section>
 </Layout>

@@ -1,8 +1,8 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import VolunteerForm from "../components/VolunteerForm";
-import Portrait from "../components/Portrait.astro";
-import { site } from "../data/site";
+import Photo from "../components/Photo.astro";
+import { photos, site } from "../data/site";
 ---
 
 <Layout
@@ -19,7 +19,9 @@ import { site } from "../data/site";
           Yard signs, block walks, phone banks, and poll greeters. Tell the campaign how you can help.
         </p>
       </div>
-      <Portrait variant="hero" class="hidden max-w-xs md:block" />
+      <figure class="hidden overflow-hidden rounded-sm border border-gold/40 md:block">
+        <Photo src={photos.parade} class="h-80 w-full object-cover object-[center_25%]" />
+      </figure>
     </div>
   </section>
 
@@ -46,6 +48,10 @@ import { site } from "../data/site";
           <li>Offer two hours during early voting, October 19–30.</li>
         </ul>
       </div>
+      <figure class="overflow-hidden rounded-sm border border-gold/40">
+        <Photo src={photos.downtown} class="h-56 w-full object-cover object-center" />
+        <figcaption class="bg-navy px-4 py-2 text-sm text-cream">Neighbors in Precinct 1</figcaption>
+      </figure>
     </aside>
   </section>
 </Layout>
