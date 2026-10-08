@@ -4,9 +4,9 @@ Campaign website for **Judge Cindy Allen**, Republican candidate for Justice of 
 
 Built with [Astro](https://astro.build), React islands, Tailwind CSS, and Markdown content collections.
 
-**Live site:** [https://cindyallenjp-com.skyabove.workers.dev](https://cindyallenjp-com.skyabove.workers.dev)
+**Live site:** [https://electcindyallen.skyabove.workers.dev](https://electcindyallen.skyabove.workers.dev)
 
-**Code:** [github.com/skyaboveme/cindyallenjp.com](https://github.com/skyaboveme/cindyallenjp.com)
+**Code:** [github.com/skyaboveme/electcindyallen](https://github.com/skyaboveme/electcindyallen)
 
 ## Run locally
 
@@ -19,13 +19,13 @@ Then open the local URL printed in the terminal (usually `http://localhost:4321`
 
 ## Deploy
 
-The site deploys as the Cloudflare Worker `cindyallenjp-com`:
+The site deploys as the Cloudflare Worker `electcindyallen`:
 
 ```sh
 npm run deploy
 ```
 
-That builds Astro and uploads `dist/` to the production Worker. The dashboard for this service is [cindyallenjp-com production](https://dash.cloudflare.com/aa96f50b9174b128d2cbe8f6db54b940/workers/services/view/cindyallenjp-com/production).
+That builds Astro and uploads `dist/` to the production Worker. The dashboard for this service is [electcindyallen production](https://dash.cloudflare.com/aa96f50b9174b128d2cbe8f6db54b940/workers/services/view/electcindyallen/production).
 
 ```sh
 npm install

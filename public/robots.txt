@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://cindyallenjp-com.skyabove.workers.dev/rss.xml
+Sitemap: https://electcindyallen.skyabove.workers.dev/rss.xml
