@@ -17,6 +17,9 @@ import Portrait from "./Portrait.astro";
       <p class="mt-4 max-w-md text-cream/75">
         {site.office} · {site.county}, {site.state}. Republican nominee on the November 3, 2026 ballot against {site.opponent.name} ({site.opponent.partyAbbr}).
       </p>
+      <a class="mt-4 inline-block text-gold-soft hover:underline" href={`mailto:${site.campaignEmail}`}>
+        {site.campaignEmail}
+      </a>
     </div>
     <div>
       <p class="font-mark text-[10px] text-gold">On this site</p>

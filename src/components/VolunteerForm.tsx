@@ -1,21 +1,15 @@
-import { useMemo, useState, type FormEvent } from "react";
+import { useState, type FormEvent } from "react";
 import { volunteerRoles } from "../data/site";
 
 type Props = {
-  formspreeId?: string;
   campaignEmail?: string;
 };
 
 const storageKey = "cindy-allen-volunteer";
 
-export default function VolunteerForm({ formspreeId, campaignEmail }: Props) {
+export default function VolunteerForm({ campaignEmail }: Props) {
   const [status, setStatus] = useState<"idle" | "saving" | "done" | "error">("idle");
   const [roles, setRoles] = useState<string[]>([]);
-
-  const endpoint = useMemo(
-    () => (formspreeId ? `https://formspree.io/f/${formspreeId}` : ""),
-    [formspreeId],
-  );
 
   async function onSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -27,14 +21,7 @@ export default function VolunteerForm({ formspreeId, campaignEmail }: Props) {
     try {
       window.localStorage.setItem(storageKey, JSON.stringify({ ...payload, at: new Date().toISOString() }));
 
-      if (endpoint) {
-        const response = await fetch(endpoint, {
-          method: "POST",
-          headers: { Accept: "application/json", "Content-Type": "application/json" },
-          body: JSON.stringify(payload),
-        });
-        if (!response.ok) throw new Error("Form service rejected the submission.");
-      } else if (campaignEmail) {
+      if (campaignEmail) {
         const subject = encodeURIComponent("Volunteer for Cindy Allen");
         const body = encodeURIComponent(
           Object.entries(payload)
@@ -65,9 +52,9 @@ export default function VolunteerForm({ formspreeId, campaignEmail }: Props) {
         <h3 className="font-display mt-2 text-2xl">Thank you for standing with Judge Allen.</h3>
         <p className="mt-3 text-muted">
           Your volunteer card is saved in this browser
-          {endpoint || campaignEmail
-            ? " and has been sent to the campaign."
-            : ". Add a Formspree ID or campaign email in src/data/site.ts so submissions also arrive in the campaign inbox."}
+          {campaignEmail
+            ? ` and opened an email to ${campaignEmail}.`
+            : "."}
         </p>
         <button
           type="button"

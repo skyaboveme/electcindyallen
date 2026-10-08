@@ -50,10 +50,10 @@ const path = Astro.url.pathname.replace(/\/$/, "") || "/";
         Volunteer
       </a>
       <a
-        href="/get-involved#donate"
+        href={`mailto:${site.campaignEmail}`}
         class="rounded-sm border border-gold px-3 py-2 text-sm font-semibold text-gold-soft hover:bg-gold/10"
       >
-        Donate
+        {site.campaignEmail}
       </a>
     </div>
 

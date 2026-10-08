@@ -23,7 +23,7 @@ import { site } from "../data/site";
     <div>
       <h2 class="font-display text-3xl">Campaign message</h2>
       <div class="mt-6">
-        <VolunteerForm client:load formspreeId={site.formspreeId} campaignEmail={site.campaignEmail} />
+        <VolunteerForm client:load campaignEmail={site.campaignEmail} />
       </div>
     </div>
     <div class="space-y-6">
@@ -40,20 +40,11 @@ import { site } from "../data/site";
         </p>
       </div>
       <div class="parchment rounded-sm border border-gold/40 p-6">
-        <h3 class="font-display text-2xl">Campaign contacts</h3>
-        <ul class="mt-3 space-y-2 text-muted">
-          <li>Email: {site.campaignEmail || "Add campaignEmail in src/data/site.ts"}</li>
-          <li>Phone: {site.campaignPhone || "Add campaignPhone in src/data/site.ts"}</li>
-          <li>
-            Social: {
-              site.facebookUrl ? (
-                <a href={site.facebookUrl}>Facebook</a>
-              ) : (
-                "Add facebookUrl when the page is live"
-              )
-            }
-          </li>
-        </ul>
+        <h3 class="font-display text-2xl">Campaign contact</h3>
+        <p class="mt-3 text-muted">Write Judge Allen’s campaign at</p>
+        <a href={`mailto:${site.campaignEmail}`} class="mt-2 inline-block text-xl font-semibold text-red-deep">
+          {site.campaignEmail}
+        </a>
       </div>
     </div>
   </section>

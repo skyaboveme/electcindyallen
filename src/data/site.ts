@@ -11,11 +11,9 @@ export const site = {
   tagline: "Re-elect Judge Cindy Allen — Justice of the Peace, Precinct 1",
   siteName: "Cindy Allen for Justice of the Peace",
   url: "https://cindyallenjp-com.skyabove.workers.dev",
-  campaignEmail: "",
+  campaignEmail: "cindy@cindyallen.org",
   campaignPhone: "",
-  donateUrl: "",
   facebookUrl: "",
-  formspreeId: "",
   electionDay: "2026-11-03T07:00:00-06:00",
   electionDayLabel: "Tuesday, November 3, 2026",
   registrationDeadline: "Monday, October 5, 2026",
@@ -89,11 +87,6 @@ export const experience = [
     title: "Juvenile justice, corrections & probation",
     meta: "13 years in the Texas justice system before taking this bench",
     body: "Nine years in juvenile justice, three in juvenile corrections, and one in adult probation — work that teaches judgment, process, and what happens after a case is called.",
-  },
-  {
-    title: "Bastrop small-business owner",
-    meta: "Sertinos Coffee, Bastrop",
-    body: "A local business owner who already knew Main Street, the square, and the people who walk into a justice court looking for a fair shake and a timely setting.",
   },
 ] as const;
 

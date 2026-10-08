@@ -38,8 +38,7 @@ Then open the local URL printed in the terminal (usually `http://localhost:4321`
 
 Edit `src/data/site.ts` for:
 
-- campaign email, phone, Facebook, and donation URL
-- Formspree form ID (volunteer submissions)
+- campaign email (cindy@cindyallen.org), phone, and Facebook
 - election dates and opponent name
 - political advertising disclaimer / committee name
 
